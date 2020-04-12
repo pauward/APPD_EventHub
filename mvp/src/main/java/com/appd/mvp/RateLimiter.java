@@ -1,10 +1,47 @@
 package com.appd.mvp;
 
-import com.appd.events.Event;
+import java.util.LinkedList;
+import java.util.Queue;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class RateLimiter {
 
-	public boolean isAllowed(Event myEvent) {
-		return true;
+	static final Logger logger = LoggerFactory.getLogger(RateLimiter.class);
+	protected int rateLimitTimeWindow;
+	protected int rateLimitMsgCount;
+	protected int apiCallCounter;
+	// Fixed block time frame to track number of received API calls
+	protected Queue<Long> msgTimeQueue;
+
+	RateLimiter(int window, int count) {
+		this.rateLimitTimeWindow = window;
+		this.rateLimitMsgCount = count;
+		this.apiCallCounter = 0;
+		this.msgTimeQueue = new LinkedList<Long>(); // For better insertion and delete time
+	}
+
+	private void rollingTimeWindowCheck() {
+		if (apiCallCounter == rateLimitMsgCount) {
+			logger.debug("Rate limit reached, checking rolling window queue...");
+			long currentTime = System.currentTimeMillis();
+			while (msgTimeQueue.peek() != null && currentTime > (msgTimeQueue.peek() + (rateLimitTimeWindow * 60000))) {
+				if (msgTimeQueue.poll() == null)
+					break;
+				apiCallCounter--;
+			}
+			logger.debug("{} elements dequeued from rolling window", rateLimitMsgCount - apiCallCounter);
+		}
+	}
+
+	boolean isAllowed() {
+		rollingTimeWindowCheck();
+		if (apiCallCounter < rateLimitMsgCount) {
+			msgTimeQueue.add(System.currentTimeMillis());
+			apiCallCounter++;
+			return true;
+		}
+		return false;
 	}
 }
