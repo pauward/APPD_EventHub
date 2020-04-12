@@ -14,31 +14,30 @@ public class RateLimiter {
 	protected int rateLimitMsgCount;
 	protected int apiCallCounter;
 
-	// Fixed block time frame to track number of received API calls
+	// Fixed block time frame to track received API calls
 	protected Queue<Long> msgTimeQueue;
 
 	RateLimiter(int window, int count) {
-		this.rateLimitTimeWindow = window;
+		this.rateLimitTimeWindow = window; // Unit : Minutes
 		this.rateLimitMsgCount = count;
 		this.apiCallCounter = 0;
 		this.msgTimeQueue = new LinkedList<Long>(); // For better insertion and delete performance
 	}
 
-	private void updateRollingTimeWindow() {
-		if (apiCallCounter == rateLimitMsgCount) {
-			logger.debug("Rate limit reached, checking rolling window queue...");
-			long currentTime = System.currentTimeMillis();
-			while (msgTimeQueue.peek() != null && currentTime > (msgTimeQueue.peek() + (rateLimitTimeWindow * 60000))) {
-				if (msgTimeQueue.poll() == null)
-					break;
-				apiCallCounter--;
-			}
-			logger.debug("{} elements dequeued from rolling window", rateLimitMsgCount - apiCallCounter);
+	synchronized private void updateRollingTimeWindow() {
+		logger.debug("Rate limit reached, checking rolling window queue...");
+		long currentTime = System.currentTimeMillis();
+		while (msgTimeQueue.peek() != null && currentTime > (msgTimeQueue.peek() + (rateLimitTimeWindow * 60000))) {
+			msgTimeQueue.poll();
+			apiCallCounter--;
 		}
+		logger.debug("{} elements dequeued from rolling window", rateLimitMsgCount - apiCallCounter);
+
 	}
 
-	boolean isAllowed() {
-		updateRollingTimeWindow();
+	synchronized boolean isAllowed() {
+		if (apiCallCounter == rateLimitMsgCount)
+			updateRollingTimeWindow();
 		if (apiCallCounter < rateLimitMsgCount) {
 			msgTimeQueue.add(System.currentTimeMillis());
 			apiCallCounter++;
