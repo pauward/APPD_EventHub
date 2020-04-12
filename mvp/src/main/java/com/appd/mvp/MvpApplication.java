@@ -1,21 +1,21 @@
 package com.appd.mvp;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 @SpringBootApplication
-@RestController
+@EnableConfigurationProperties(ConfigProperties.class)
 public class MvpApplication {
-
+    static final Logger logger = LoggerFactory.getLogger(MvpApplication.class);
 	public static void main(String[] args) {
+		System.out.println("############_STARTED_############");
+		if(args!=null && args.length > 0)
+			logger.info("Starting appplication {}", args[0]);
 		SpringApplication.run(MvpApplication.class, args);
+		
 	}
-
-	@GetMapping("/hello")
-	public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
-		return String.format("Hello %s!", name);
-	}
+	
 }
