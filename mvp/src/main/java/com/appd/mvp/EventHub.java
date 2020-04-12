@@ -34,8 +34,6 @@ public class EventHub {
 			@RequestHeader(value = "Authorization") String authorization,
 			@RequestHeader(value = "Tenant") String tenant) {
 
-		logger.info("Received request from a client");
-
 		if (authorization.equals(defaultConfig.getDefaultToken()) && tenant.equals(defaultConfig.getDefaultTenant())) {
 			UUID uuid = Generators.timeBasedGenerator().generate();
 			return ResponseEntity.status(HttpStatus.ACCEPTED).body(new GatewayResponse(uuid.toString()));
