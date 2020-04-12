@@ -11,7 +11,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 public class MvpApplication {
     static final Logger logger = LoggerFactory.getLogger(MvpApplication.class);
 	public static void main(String[] args) {
-		System.out.println("############_STARTED_############");
 		if(args!=null && args.length > 0)
 			logger.info("Starting appplication {}", args[0]);
 		SpringApplication.run(MvpApplication.class, args);

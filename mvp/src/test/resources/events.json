@@ -1,0 +1,75 @@
+{
+	"eventList": [{
+		"eventId": "3c6435c8-7cd5-11ea-8d95-43f4ee316fe5",
+		"type": "EType1",
+		"body": {
+			"name": "appd_mp_event",
+			"eventStart": 1586622559298,
+			"eventData": {
+				"why": "Node Failure",
+				"how": "Power Outage",
+				"what": "Notify Zookeeper"
+			},
+			"severity": 2,
+			"tags": [{
+				"name": "mustResolve"
+			}, {
+				"name": "openCase"
+			}]
+		}
+	}, {
+		"eventId": "3c64f91f-7cd5-11ea-8d95-bf20f1433748",
+		"type": "EType2",
+		"body": {
+			"name": "appd_mp_event",
+			"eventStart": 1586622559550,
+			"eventData": {
+				"why": "System Reboot",
+				"how": "Manual",
+				"what": "Notify Mainteance"
+			},
+			"severity": 5,
+			"tags": [{
+				"name": "noRetries"
+			}, {
+				"name": "closeCase"
+			}]
+		}
+	}, {
+		"eventId": "3c6ce871-7cd5-11ea-8d95-0573294a6574",
+		"type": "EType3",
+		"body": {
+			"name": "appd_mp_event",
+			"eventStart": 1586622560550,
+			"eventData": {
+				"why": "Connection Lost",
+				"how": "Timeout",
+				"what": "Wait"
+			},
+			"severity": 3,
+			"tags": [{
+				"name": "retry"
+			}, {
+				"name": "resolved"
+			}]
+		}
+	}, {
+		"eventId": "3c6f5989-7cd5-11ea-8d95-4f1bd2633711",
+		"type": "EType4",
+		"body": {
+			"name": "appd_mp_event",
+			"eventStart": 1586622561550,
+			"eventData": {
+				"why": "Overload",
+				"how": "DDos",
+				"what": "BlocK"
+			},
+			"severity": 1,
+			"tags": [{
+				"name": "attack"
+			}, {
+				"name": "openCase"
+			}]
+		}
+	}]
+}

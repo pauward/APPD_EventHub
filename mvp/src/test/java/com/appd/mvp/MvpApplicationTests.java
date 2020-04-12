@@ -1,18 +1,28 @@
 package com.appd.mvp;
 
-import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+
+import org.junit.jupiter.api.Test;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultActions;
+import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+
 
 @WebMvcTest
 @AutoConfigureMockMvc
@@ -46,10 +56,26 @@ class MvpApplicationTests {
 	
 	@Test
 	public void sendEvent() throws Exception {
-		mvc.perform(MockMvcRequestBuilders.post("/event-gateway").header("Authorization", defaultToken)
-				.header("Tenant", defaultTenant).accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
-				.andExpect(content().string(containsString("")));
-		System.out.println(content().toString());
+		
+		MockHttpServletRequestBuilder restApiCall=MockMvcRequestBuilders.post("/event-gateway");
+		restApiCall.header("Authorization", defaultToken);
+		restApiCall.header("Tenant", defaultTenant);
+		restApiCall.accept(MediaType.APPLICATION_JSON);
+		restApiCall.contentType(MediaType.APPLICATION_JSON);
+		
+		File eventsJson = new File("src/test/resources/events.json");
+		StringBuilder jsonString = new StringBuilder();
+		BufferedReader buffer = new BufferedReader(new InputStreamReader(new FileInputStream(eventsJson)));
+		String line;
+		while ((line = buffer.readLine()) != null) {
+			jsonString.append(line + System.lineSeparator());
+		}
+		buffer.close();
+		restApiCall.content(jsonString.toString());
+
+		ResultActions result = mvc.perform(restApiCall);
+		result.andExpect(status().isAccepted()).andExpect(content().string(containsString("uuid")));
+		
 	}
 
 }

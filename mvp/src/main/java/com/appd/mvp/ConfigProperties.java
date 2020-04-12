@@ -10,6 +10,14 @@ import org.springframework.context.annotation.PropertySource;
 @ConfigurationProperties(prefix = "mvp")
 @PropertySource(value = "classpath:configuration.properties")
 public class ConfigProperties {
+	
+	private String defaultToken;
+	private String defaultTenant;
+	private int rateLimitTimeWindow;
+	private int rateLimitMsgCount;
+	private int batchQueueSize;
+	private int batchCycleTime;
+	
 	public String getDefaultToken() {
 		return defaultToken;
 	}
@@ -57,10 +65,5 @@ public class ConfigProperties {
 	public void setBatchCycleTime(int batchCycleTime) {
 		this.batchCycleTime = batchCycleTime;
 	}
-	private String defaultToken;
-	private String defaultTenant;
-	private int rateLimitTimeWindow;
-	private int rateLimitMsgCount;
-	private int batchQueueSize;
-	private int batchCycleTime;
+
 }
