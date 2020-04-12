@@ -16,17 +16,17 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 @RestController
-public class EventHub {
+public class EventHubController {
 
 	@Autowired
 	ConfigProperties defaultConfig;
 
-	static final Logger logger = LoggerFactory.getLogger(EventHub.class);
+	static final Logger logger = LoggerFactory.getLogger(EventHubController.class);
 	protected final RateLimiter limiter;
 	protected final BatchProcessor batchEngine;
 
 	@Autowired
-	public EventHub(RateLimiter rateLimiter, BatchProcessor batchProcessor) {
+	public EventHubController(RateLimiter rateLimiter, BatchProcessor batchProcessor) {
 		limiter = rateLimiter;
 		batchEngine = batchProcessor;
 	}
@@ -40,7 +40,7 @@ public class EventHub {
 
 		try {
 			if (!limiter.isAllowed()) {
-				logger.warn("Exceeded rate limit; Rejecting request.");
+				logger.debug("Exceeded rate limit; Rejecting request.");
 				return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).build();
 			}
 

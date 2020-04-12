@@ -9,9 +9,11 @@ import org.slf4j.LoggerFactory;
 public class RateLimiter {
 
 	static final Logger logger = LoggerFactory.getLogger(RateLimiter.class);
+
 	protected int rateLimitTimeWindow;
 	protected int rateLimitMsgCount;
 	protected int apiCallCounter;
+
 	// Fixed block time frame to track number of received API calls
 	protected Queue<Long> msgTimeQueue;
 
@@ -19,10 +21,10 @@ public class RateLimiter {
 		this.rateLimitTimeWindow = window;
 		this.rateLimitMsgCount = count;
 		this.apiCallCounter = 0;
-		this.msgTimeQueue = new LinkedList<Long>(); // For better insertion and delete time
+		this.msgTimeQueue = new LinkedList<Long>(); // For better insertion and delete performance
 	}
 
-	private void rollingTimeWindowCheck() {
+	private void updateRollingTimeWindow() {
 		if (apiCallCounter == rateLimitMsgCount) {
 			logger.debug("Rate limit reached, checking rolling window queue...");
 			long currentTime = System.currentTimeMillis();
@@ -36,7 +38,7 @@ public class RateLimiter {
 	}
 
 	boolean isAllowed() {
-		rollingTimeWindowCheck();
+		updateRollingTimeWindow();
 		if (apiCallCounter < rateLimitMsgCount) {
 			msgTimeQueue.add(System.currentTimeMillis());
 			apiCallCounter++;

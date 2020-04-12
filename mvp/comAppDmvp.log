@@ -4813,3 +4813,247 @@ Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.appd.m
 2020-04-12 12:00:38,393 WARN com.appd.mvp.EventHub [main] Unauthorized access
 2020-04-12 12:00:38,401 WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [main] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.appd.mvp.GatewayResponse> com.appd.mvp.EventHub.crazyEventGateway(com.appd.events.EventMessageList,java.lang.String,java.lang.String)]
 2020-04-12 12:00:38,415 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-04-12 13:15:43,385 INFO com.appd.mvp.MvpApplicationTests [main] Starting MvpApplicationTests on DESKTOP-LEJDT05 with PID 9096 (started by niwar in C:\Users\niwar\Documents\APPD_EventHub\mvp)
+2020-04-12 13:15:43,386 DEBUG com.appd.mvp.MvpApplicationTests [main] Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-04-12 13:15:43,386 INFO com.appd.mvp.MvpApplicationTests [main] The following profiles are active: prod
+2020-04-12 13:15:44,103 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-12 13:15:44,293 INFO org.springframework.boot.test.mock.web.SpringBootMockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-04-12 13:15:44,294 INFO org.springframework.test.web.servlet.TestDispatcherServlet [main] Initializing Servlet ''
+2020-04-12 13:15:44,305 INFO org.springframework.test.web.servlet.TestDispatcherServlet [main] Completed initialization in 10 ms
+2020-04-12 13:15:44,327 INFO com.appd.mvp.MvpApplicationTests [main] Started MvpApplicationTests in 1.267 seconds (JVM running for 2.201)
+2020-04-12 13:15:44,795 DEBUG com.appd.mvp.EventHub [main] Client validated, proceeding to process events...
+2020-04-12 13:15:44,795 DEBUG com.appd.mvp.EventHub [main] Submitting 4 events to the batch processor
+2020-04-12 13:15:44,985 INFO com.appd.mvp.EventHub [main] Event submit sucesss; Job reference UUID : 6403a54d-7cfa-11ea-b2fb-23c2000b4377
+2020-04-12 13:15:45,016 WARN com.appd.mvp.EventHub [main] Unauthorized access
+2020-04-12 13:15:45,022 WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [main] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.appd.mvp.GatewayResponse> com.appd.mvp.EventHub.crazyEventGateway(com.appd.events.EventMessageList,java.lang.String,java.lang.String)]
+2020-04-12 13:15:45,032 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-04-12 13:30:20,269 INFO com.appd.mvp.MvpApplicationTests [main] Starting MvpApplicationTests on DESKTOP-LEJDT05 with PID 13892 (started by niwar in C:\Users\niwar\Documents\APPD_EventHub\mvp)
+2020-04-12 13:30:20,269 DEBUG com.appd.mvp.MvpApplicationTests [main] Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-04-12 13:30:20,269 INFO com.appd.mvp.MvpApplicationTests [main] The following profiles are active: prod
+2020-04-12 13:30:20,993 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-12 13:30:21,194 INFO org.springframework.boot.test.mock.web.SpringBootMockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-04-12 13:30:21,195 INFO org.springframework.test.web.servlet.TestDispatcherServlet [main] Initializing Servlet ''
+2020-04-12 13:30:21,207 INFO org.springframework.test.web.servlet.TestDispatcherServlet [main] Completed initialization in 12 ms
+2020-04-12 13:30:21,229 INFO com.appd.mvp.MvpApplicationTests [main] Started MvpApplicationTests in 1.286 seconds (JVM running for 2.105)
+2020-04-12 13:30:21,544 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : Check Property Loading
+2020-04-12 13:30:21,590 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : Send Good Events
+2020-04-12 13:30:21,699 DEBUG com.appd.mvp.EventHub [main] Client validated, proceeding to process events...
+2020-04-12 13:30:21,706 DEBUG com.appd.mvp.EventHub [main] Submitting 4 events to the batch processor
+2020-04-12 13:30:21,890 INFO com.appd.mvp.EventHub [main] Event submit sucesss; Job reference UUID : 6eb0baa8-7cfc-11ea-8475-236c79076660
+2020-04-12 13:30:21,916 DEBUG com.appd.mvp.MvpApplicationTests [main] Successful test; Event submitted
+2020-04-12 13:30:21,917 DEBUG com.appd.mvp.MvpApplicationTests [main] ##### end of test #####
+2020-04-12 13:30:21,921 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : Send UnAuthorized Event
+2020-04-12 13:30:21,923 WARN com.appd.mvp.EventHub [main] Unauthorized access
+2020-04-12 13:30:21,925 DEBUG com.appd.mvp.MvpApplicationTests [main] Successful test; Not Allowed
+2020-04-12 13:30:21,925 DEBUG com.appd.mvp.MvpApplicationTests [main] ##### end of test #####
+2020-04-12 13:30:21,929 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : Send No Event
+2020-04-12 13:30:21,931 WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [main] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.appd.mvp.GatewayResponse> com.appd.mvp.EventHub.crazyEventGateway(com.appd.events.EventMessageList,java.lang.String,java.lang.String)]
+2020-04-12 13:30:21,932 DEBUG com.appd.mvp.MvpApplicationTests [main] Successful test; Bad Request
+2020-04-12 13:30:21,932 DEBUG com.appd.mvp.MvpApplicationTests [main] ##### end of test #####
+2020-04-12 13:30:21,940 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Limiter test
+2020-04-12 13:30:21,940 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Sending first call
+2020-04-12 13:30:21,940 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Sending second call
+2020-04-12 13:30:21,940 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-12 13:30:21,940 DEBUG com.appd.mvp.RateLimiter [main] 0 elements dequeued from rolling window
+2020-04-12 13:30:21,940 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Successful test; Limiter blocked API after limit
+2020-04-12 13:30:21,940 DEBUG com.appd.mvp.RateLimiterBlockTests [main] ##### end of test #####
+2020-04-12 13:30:21,941 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Limiter timer test
+2020-04-12 13:30:21,942 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Sending call 1
+2020-04-12 13:30:21,953 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Sending call 2
+2020-04-12 13:30:21,964 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Sending call 3
+2020-04-12 13:30:21,964 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-12 13:30:21,964 DEBUG com.appd.mvp.RateLimiter [main] 2 elements dequeued from rolling window
+2020-04-12 13:30:21,975 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Sending call 4
+2020-04-12 13:30:21,985 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Sending call 5
+2020-04-12 13:30:21,985 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-12 13:30:21,985 DEBUG com.appd.mvp.RateLimiter [main] 2 elements dequeued from rolling window
+2020-04-12 13:30:21,996 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Successful test; Dequeued expired calls successfully
+2020-04-12 13:30:21,996 DEBUG com.appd.mvp.RateLimiterBlockTests [main] ##### end of test #####
+2020-04-12 13:30:21,997 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Limiter varialbe test
+2020-04-12 13:30:21,997 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Sending call 1
+2020-04-12 13:30:21,997 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Sending call 2
+2020-04-12 13:30:21,997 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Sending call 3
+2020-04-12 13:30:21,997 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-12 13:30:21,997 DEBUG com.appd.mvp.RateLimiter [main] 0 elements dequeued from rolling window
+2020-04-12 13:30:21,997 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Sending call 4
+2020-04-12 13:30:21,997 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-12 13:30:21,997 DEBUG com.appd.mvp.RateLimiter [main] 0 elements dequeued from rolling window
+2020-04-12 13:30:21,998 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Sending call 5
+2020-04-12 13:30:21,998 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-12 13:30:21,998 DEBUG com.appd.mvp.RateLimiter [main] 0 elements dequeued from rolling window
+2020-04-12 13:30:21,998 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Successful test; Limiter queue maxed at specified limit; did not dequeue
+2020-04-12 13:30:21,998 DEBUG com.appd.mvp.RateLimiterBlockTests [main] ##### end of test #####
+2020-04-12 13:30:22,008 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-04-12 13:33:30,959 INFO com.appd.mvp.MvpApplicationTests [main] Starting MvpApplicationTests on DESKTOP-LEJDT05 with PID 6772 (started by niwar in C:\Users\niwar\Documents\APPD_EventHub\mvp)
+2020-04-12 13:33:30,960 DEBUG com.appd.mvp.MvpApplicationTests [main] Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-04-12 13:33:30,961 INFO com.appd.mvp.MvpApplicationTests [main] The following profiles are active: prod
+2020-04-12 13:33:31,655 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-12 13:33:31,847 INFO org.springframework.boot.test.mock.web.SpringBootMockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-04-12 13:33:31,848 INFO org.springframework.test.web.servlet.TestDispatcherServlet [main] Initializing Servlet ''
+2020-04-12 13:33:31,863 INFO org.springframework.test.web.servlet.TestDispatcherServlet [main] Completed initialization in 15 ms
+2020-04-12 13:33:31,884 INFO com.appd.mvp.MvpApplicationTests [main] Started MvpApplicationTests in 1.249 seconds (JVM running for 2.068)
+2020-04-12 13:33:32,197 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : Check Property Loading
+2020-04-12 13:33:32,241 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : Send Good Events
+2020-04-12 13:33:32,362 DEBUG com.appd.mvp.EventHub [main] Client validated, proceeding to process events...
+2020-04-12 13:33:32,363 DEBUG com.appd.mvp.EventHub [main] Submitting 4 events to the batch processor
+2020-04-12 13:33:32,553 INFO com.appd.mvp.EventHub [main] Event submit sucesss; Job reference UUID : e0559809-7cfc-11ea-89f4-ad5621247dd3
+2020-04-12 13:33:32,576 DEBUG com.appd.mvp.MvpApplicationTests [main] Successful test; Event submitted
+2020-04-12 13:33:32,577 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : End of test
+2020-04-12 13:33:32,580 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : Send UnAuthorized Event
+2020-04-12 13:33:32,582 WARN com.appd.mvp.EventHub [main] Unauthorized access
+2020-04-12 13:33:32,583 DEBUG com.appd.mvp.MvpApplicationTests [main] Successful test; Not Allowed
+2020-04-12 13:33:32,583 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : End of test
+2020-04-12 13:33:32,587 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : Send No Event
+2020-04-12 13:33:32,590 WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [main] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.appd.mvp.GatewayResponse> com.appd.mvp.EventHub.crazyEventGateway(com.appd.events.EventMessageList,java.lang.String,java.lang.String)]
+2020-04-12 13:33:32,591 DEBUG com.appd.mvp.MvpApplicationTests [main] Successful test; Bad Request
+2020-04-12 13:33:32,591 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : End of test
+2020-04-12 13:33:32,599 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Limiter test
+2020-04-12 13:33:32,599 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Sending first call
+2020-04-12 13:33:32,599 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Sending second call
+2020-04-12 13:33:32,599 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-12 13:33:32,599 DEBUG com.appd.mvp.RateLimiter [main] 0 elements dequeued from rolling window
+2020-04-12 13:33:32,599 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Successful test; Limiter blocked API after limit
+2020-04-12 13:33:32,599 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : End of test
+2020-04-12 13:33:32,600 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Limiter timer test
+2020-04-12 13:33:32,600 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Sending call 1
+2020-04-12 13:33:32,612 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Sending call 2
+2020-04-12 13:33:32,623 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Sending call 3
+2020-04-12 13:33:32,623 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-12 13:33:32,623 DEBUG com.appd.mvp.RateLimiter [main] 2 elements dequeued from rolling window
+2020-04-12 13:33:32,634 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Sending call 4
+2020-04-12 13:33:32,644 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Sending call 5
+2020-04-12 13:33:32,644 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-12 13:33:32,644 DEBUG com.appd.mvp.RateLimiter [main] 2 elements dequeued from rolling window
+2020-04-12 13:33:32,654 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Successful test; Dequeued expired calls successfully
+2020-04-12 13:33:32,654 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : End of test
+2020-04-12 13:33:32,655 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Limiter varialbe test
+2020-04-12 13:33:32,661 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Sending call 1
+2020-04-12 13:33:32,662 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Sending call 2
+2020-04-12 13:33:32,662 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Sending call 3
+2020-04-12 13:33:32,662 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-12 13:33:32,662 DEBUG com.appd.mvp.RateLimiter [main] 0 elements dequeued from rolling window
+2020-04-12 13:33:32,662 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Sending call 4
+2020-04-12 13:33:32,662 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-12 13:33:32,662 DEBUG com.appd.mvp.RateLimiter [main] 0 elements dequeued from rolling window
+2020-04-12 13:33:32,662 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Sending call 5
+2020-04-12 13:33:32,662 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-12 13:33:32,662 DEBUG com.appd.mvp.RateLimiter [main] 0 elements dequeued from rolling window
+2020-04-12 13:33:32,663 DEBUG com.appd.mvp.RateLimiterBlockTests [main] Successful test; Limiter queue maxed at specified limit; did not dequeue
+2020-04-12 13:33:32,663 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : End of test
+2020-04-12 13:33:32,671 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-04-12 13:35:47,038 INFO com.appd.mvp.MvpApplicationTests [main] Starting MvpApplicationTests on DESKTOP-LEJDT05 with PID 18276 (started by niwar in C:\Users\niwar\Documents\APPD_EventHub\mvp)
+2020-04-12 13:35:47,039 DEBUG com.appd.mvp.MvpApplicationTests [main] Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-04-12 13:35:47,040 INFO com.appd.mvp.MvpApplicationTests [main] The following profiles are active: prod
+2020-04-12 13:35:47,765 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-12 13:35:47,963 INFO org.springframework.boot.test.mock.web.SpringBootMockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-04-12 13:35:47,963 INFO org.springframework.test.web.servlet.TestDispatcherServlet [main] Initializing Servlet ''
+2020-04-12 13:35:47,975 INFO org.springframework.test.web.servlet.TestDispatcherServlet [main] Completed initialization in 12 ms
+2020-04-12 13:35:47,997 INFO com.appd.mvp.MvpApplicationTests [main] Started MvpApplicationTests in 1.283 seconds (JVM running for 2.099)
+2020-04-12 13:35:48,319 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : Check Property Loading
+2020-04-12 13:35:48,371 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : Send Good Events
+2020-04-12 13:35:48,485 DEBUG com.appd.mvp.EventHub [main] Client validated, proceeding to process events...
+2020-04-12 13:35:48,492 DEBUG com.appd.mvp.EventHub [main] Submitting 4 events to the batch processor
+2020-04-12 13:35:48,681 INFO com.appd.mvp.EventHub [main] Event submit sucesss; Job reference UUID : 317913c8-7cfd-11ea-b915-a390ecb0425c
+2020-04-12 13:35:48,709 DEBUG com.appd.mvp.MvpApplicationTests [main] Successful test; Event submitted
+2020-04-12 13:35:48,709 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : End of test
+2020-04-12 13:35:48,714 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : Send UnAuthorized Event
+2020-04-12 13:35:48,716 WARN com.appd.mvp.EventHub [main] Unauthorized access
+2020-04-12 13:35:48,717 DEBUG com.appd.mvp.MvpApplicationTests [main] Successful test; Not Allowed
+2020-04-12 13:35:48,717 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : End of test
+2020-04-12 13:35:48,721 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : Send No Event
+2020-04-12 13:35:48,724 WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [main] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.appd.mvp.GatewayResponse> com.appd.mvp.EventHub.crazyEventGateway(com.appd.events.EventMessageList,java.lang.String,java.lang.String)]
+2020-04-12 13:35:48,725 DEBUG com.appd.mvp.MvpApplicationTests [main] Successful test; Bad Request
+2020-04-12 13:35:48,725 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : End of test
+2020-04-12 13:35:48,729 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Check Bean Init
+2020-04-12 13:35:48,733 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Limiter test
+2020-04-12 13:35:48,733 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending first call
+2020-04-12 13:35:48,733 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending second call
+2020-04-12 13:35:48,734 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-12 13:35:48,734 DEBUG com.appd.mvp.RateLimiter [main] 0 elements dequeued from rolling window
+2020-04-12 13:35:48,734 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Successful test; Limiter blocked API after limit
+2020-04-12 13:35:48,734 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : End of test
+2020-04-12 13:35:48,735 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Limiter timer test
+2020-04-12 13:35:48,735 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 1
+2020-04-12 13:35:48,747 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 2
+2020-04-12 13:35:48,758 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 3
+2020-04-12 13:35:48,758 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-12 13:35:48,758 DEBUG com.appd.mvp.RateLimiter [main] 2 elements dequeued from rolling window
+2020-04-12 13:35:48,769 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 4
+2020-04-12 13:35:48,780 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 5
+2020-04-12 13:35:48,780 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-12 13:35:48,780 DEBUG com.appd.mvp.RateLimiter [main] 2 elements dequeued from rolling window
+2020-04-12 13:35:48,791 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Successful test; Dequeued expired calls successfully
+2020-04-12 13:35:48,791 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : End of test
+2020-04-12 13:35:48,792 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Limiter varialbe test
+2020-04-12 13:35:48,792 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 1
+2020-04-12 13:35:48,792 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 2
+2020-04-12 13:35:48,792 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 3
+2020-04-12 13:35:48,792 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-12 13:35:48,792 DEBUG com.appd.mvp.RateLimiter [main] 0 elements dequeued from rolling window
+2020-04-12 13:35:48,792 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 4
+2020-04-12 13:35:48,792 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-12 13:35:48,792 DEBUG com.appd.mvp.RateLimiter [main] 0 elements dequeued from rolling window
+2020-04-12 13:35:48,792 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 5
+2020-04-12 13:35:48,793 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-12 13:35:48,793 DEBUG com.appd.mvp.RateLimiter [main] 0 elements dequeued from rolling window
+2020-04-12 13:35:48,793 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Successful test; Limiter queue maxed at specified limit; did not dequeue
+2020-04-12 13:35:48,793 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : End of test
+2020-04-12 13:35:48,801 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-04-12 13:36:42,423 INFO com.appd.mvp.MvpApplicationTests [main] Starting MvpApplicationTests on DESKTOP-LEJDT05 with PID 18712 (started by niwar in C:\Users\niwar\Documents\APPD_EventHub\mvp)
+2020-04-12 13:36:42,424 DEBUG com.appd.mvp.MvpApplicationTests [main] Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-04-12 13:36:42,424 INFO com.appd.mvp.MvpApplicationTests [main] The following profiles are active: prod
+2020-04-12 13:36:43,146 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-12 13:36:43,345 INFO org.springframework.boot.test.mock.web.SpringBootMockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-04-12 13:36:43,345 INFO org.springframework.test.web.servlet.TestDispatcherServlet [main] Initializing Servlet ''
+2020-04-12 13:36:43,356 INFO org.springframework.test.web.servlet.TestDispatcherServlet [main] Completed initialization in 11 ms
+2020-04-12 13:36:43,377 INFO com.appd.mvp.MvpApplicationTests [main] Started MvpApplicationTests in 1.277 seconds (JVM running for 2.096)
+2020-04-12 13:36:43,694 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : Check Property Loading
+2020-04-12 13:36:43,738 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : Send Good Events
+2020-04-12 13:36:43,868 DEBUG com.appd.mvp.EventHub [main] Client validated, proceeding to process events...
+2020-04-12 13:36:43,875 DEBUG com.appd.mvp.EventHub [main] Submitting 4 events to the batch processor
+2020-04-12 13:36:44,065 INFO com.appd.mvp.EventHub [main] Event submit sucesss; Job reference UUID : 527c020a-7cfd-11ea-b5d3-ad82a7f67cbc
+2020-04-12 13:36:44,092 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : Successful test; Event submitted
+2020-04-12 13:36:44,092 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : End of test
+2020-04-12 13:36:44,096 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : Send UnAuthorized Event
+2020-04-12 13:36:44,098 WARN com.appd.mvp.EventHub [main] Unauthorized access
+2020-04-12 13:36:44,099 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : Successful test; Not Allowed
+2020-04-12 13:36:44,099 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : End of test
+2020-04-12 13:36:44,102 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : Send No Event
+2020-04-12 13:36:44,105 WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [main] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.appd.mvp.GatewayResponse> com.appd.mvp.EventHub.crazyEventGateway(com.appd.events.EventMessageList,java.lang.String,java.lang.String)]
+2020-04-12 13:36:44,105 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : Successful test; Bad Request
+2020-04-12 13:36:44,105 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : End of test
+2020-04-12 13:36:44,109 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Check Bean Init
+2020-04-12 13:36:44,113 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Limiter test
+2020-04-12 13:36:44,113 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending first call
+2020-04-12 13:36:44,113 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending second call
+2020-04-12 13:36:44,113 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-12 13:36:44,113 DEBUG com.appd.mvp.RateLimiter [main] 0 elements dequeued from rolling window
+2020-04-12 13:36:44,113 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Successful test; Limiter blocked API after limit
+2020-04-12 13:36:44,113 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : End of test
+2020-04-12 13:36:44,114 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Limiter timer test
+2020-04-12 13:36:44,115 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 1
+2020-04-12 13:36:44,126 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 2
+2020-04-12 13:36:44,137 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 3
+2020-04-12 13:36:44,137 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-12 13:36:44,137 DEBUG com.appd.mvp.RateLimiter [main] 2 elements dequeued from rolling window
+2020-04-12 13:36:44,148 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 4
+2020-04-12 13:36:44,158 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 5
+2020-04-12 13:36:44,158 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-12 13:36:44,158 DEBUG com.appd.mvp.RateLimiter [main] 2 elements dequeued from rolling window
+2020-04-12 13:36:44,169 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Successful test; Dequeued expired calls successfully
+2020-04-12 13:36:44,169 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : End of test
+2020-04-12 13:36:44,170 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Limiter varialbe test
+2020-04-12 13:36:44,170 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 1
+2020-04-12 13:36:44,170 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 2
+2020-04-12 13:36:44,170 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 3
+2020-04-12 13:36:44,170 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-12 13:36:44,170 DEBUG com.appd.mvp.RateLimiter [main] 0 elements dequeued from rolling window
+2020-04-12 13:36:44,170 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 4
+2020-04-12 13:36:44,170 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-12 13:36:44,170 DEBUG com.appd.mvp.RateLimiter [main] 0 elements dequeued from rolling window
+2020-04-12 13:36:44,170 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 5
+2020-04-12 13:36:44,171 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-12 13:36:44,171 DEBUG com.appd.mvp.RateLimiter [main] 0 elements dequeued from rolling window
+2020-04-12 13:36:44,171 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Successful test; Limiter queue maxed at specified limit; did not dequeue
+2020-04-12 13:36:44,171 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : End of test
+2020-04-12 13:36:44,179 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
