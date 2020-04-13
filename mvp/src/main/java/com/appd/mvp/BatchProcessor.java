@@ -13,31 +13,32 @@ import com.appd.events.Event;
 public class BatchProcessor {
 
 	static final Logger logger = LoggerFactory.getLogger(BatchProcessor.class);
-	
+
 	protected int batchQueueSize;
 	protected int batchCycleTime;
 	protected int batchWorkers;
-	
+
 	protected String sinkPath;
 	protected Thread[] workers;
-	
+
 	protected ConcurrentHashMap<String, ConcurrentLinkedQueue<Pair<Long, Event>>> eventTypeMap;
-	
 
 	BatchProcessor(int size, int cycle, int processors, String sink) {
+
 		this.batchQueueSize = size;
 		this.batchCycleTime = cycle;
 		this.batchWorkers = processors;
 		this.sinkPath = sink;
-		
+
 		this.eventTypeMap = new ConcurrentHashMap<String, ConcurrentLinkedQueue<Pair<Long, Event>>>();
-		
+
 		this.workers = new Thread[processors];
-		for (int i = 0; i < processors; i++) {
+		for (int id = 0; id < processors; id++) {
 			Thread worker = new Thread(new BatchWorker(size, cycle, sink, this.eventTypeMap));
 			worker.start();
-			this.workers[i] = worker;
+			this.workers[id] = worker;
 		}
+		logger.debug("Created {} workers", workers.length);
 	}
 
 	synchronized public boolean submitEvents(ArrayList<Event> eventList) {
@@ -45,15 +46,20 @@ public class BatchProcessor {
 			for (Event e : eventList) {
 				ConcurrentLinkedQueue<Pair<Long, Event>> eventTypeQueue;
 
-				if (eventTypeMap.contains(e.getType()))
+				if (eventTypeMap.containsKey(e.getType())) {
 					eventTypeQueue = eventTypeMap.get(e.getType());
-				else
+					logger.debug("Event type queue available with {} events", eventTypeQueue.size());
+				} else {
+					logger.debug("Creating new event type queue {} ", e.getType());
 					eventTypeQueue = new ConcurrentLinkedQueue<Pair<Long, Event>>();
-
+					eventTypeMap.put(e.getType(), eventTypeQueue);
+				}
 				eventTypeQueue.add(new Pair<Long, Event>(System.currentTimeMillis(), e));
-				eventTypeMap.put(e.getType(), eventTypeQueue);
+
 			}
 		} catch (Exception e) {
+			logger.error("Exception while submitting events to queue : {}", e.getMessage());
+			logger.debug("Stack Trace : ", e);
 			return false;
 		}
 		return true;

@@ -6,6 +6,12 @@ public class Event {
 	private String type;
 	private EventBody BodyObject;
 
+	public Event(String id, String eventType, EventBody body) {
+		this.eventId = id;
+		this.type = eventType;
+		this.BodyObject = body;
+	}
+
 	public String getEventId() {
 		return eventId;
 	}

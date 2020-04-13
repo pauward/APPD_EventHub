@@ -1,0 +1,5 @@
+mvnw spring-boot:run -Dspring-boot.run.arguments="##########_Crazy_Event_Gateway_##########"
+git add --all
+git config --global user.name "pauward"
+git commit -m "Demo Update"
+git push
