@@ -12,7 +12,7 @@
     </springProfile>
     <springProfile name="prod">
         <appender name="RollingLogs" class="ch.qos.logback.core.rolling.RollingFileAppender">
-            <file>comAppDmvp.log</file>
+            <file>logs/comAppDmvp.log</file>
             <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
                 <fileNamePattern>logs/archived/comAppDmvp.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
                 <maxFileSize>1MB</maxFileSize>
