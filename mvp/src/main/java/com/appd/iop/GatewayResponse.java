@@ -1,9 +1,9 @@
-package com.appd.mvp;
+package com.appd.iop;
 
 public class GatewayResponse {
 	private String UUID;
 
-	GatewayResponse(String uuid){
+	public GatewayResponse(String uuid){
 		this.setUUID(uuid);
 	}
 	public String getUUID() {

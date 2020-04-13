@@ -1,9 +1,12 @@
 package com.appd.mvp;
 
 import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import com.appd.events.EventMessageList;
+import com.appd.iop.GatewayResponse;
 import com.fasterxml.uuid.Generators;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
+
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -61,8 +66,7 @@ public class EventHubController {
 
 				String uuid = Generators.timeBasedGenerator().generate().toString();
 				logger.info("Event submit sucesss; Job reference UUID : {}", uuid);
-				logger.warn("Message accepeted; Current call counter value : {}", limiter.apiCallCounter);
-				logger.warn("queue size {}, element {} ", limiter.msgTimeQueue.size(),limiter.msgTimeQueue.peek());
+				logger.info("Message accepeted; Current call counter value : {} ; queue size {}", limiter.apiCallCounter,limiter.msgTimeQueue.size());
 				GatewayResponse responseBody = new GatewayResponse(uuid);
 				return ResponseEntity.status(HttpStatus.ACCEPTED).body(responseBody);
 

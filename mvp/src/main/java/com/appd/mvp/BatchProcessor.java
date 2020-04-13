@@ -2,7 +2,7 @@ package com.appd.mvp;
 
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 import org.apache.activemq.artemis.api.core.Pair;
 import org.slf4j.Logger;
@@ -21,7 +21,7 @@ public class BatchProcessor {
 	protected String sinkPath;
 	protected Thread[] workers;
 
-	protected ConcurrentHashMap<String, ConcurrentLinkedQueue<Pair<Long, Event>>> eventTypeMap;
+	protected ConcurrentHashMap<String, LinkedBlockingQueue<Pair<Long, Event>>> eventTypeMap;
 
 	BatchProcessor(int size, int cycle, int processors, String sink) {
 
@@ -30,7 +30,7 @@ public class BatchProcessor {
 		this.batchWorkers = processors;
 		this.sinkPath = sink;
 
-		this.eventTypeMap = new ConcurrentHashMap<String, ConcurrentLinkedQueue<Pair<Long, Event>>>();
+		this.eventTypeMap = new ConcurrentHashMap<String, LinkedBlockingQueue<Pair<Long, Event>>>();
 
 		this.workers = new Thread[processors];
 		for (int id = 0; id < processors; id++) {
@@ -44,14 +44,14 @@ public class BatchProcessor {
 	synchronized public boolean submitEvents(ArrayList<Event> eventList) {
 		try {
 			for (Event e : eventList) {
-				ConcurrentLinkedQueue<Pair<Long, Event>> eventTypeQueue;
+				LinkedBlockingQueue<Pair<Long, Event>> eventTypeQueue;
 
 				if (eventTypeMap.containsKey(e.getType())) {
 					eventTypeQueue = eventTypeMap.get(e.getType());
-					logger.debug("Event type queue available with {} events", eventTypeQueue.size());
+					logger.debug("Event type queue - {} available with {} events", e.getType(), eventTypeQueue.size());
 				} else {
 					logger.debug("Creating new event type queue {} ", e.getType());
-					eventTypeQueue = new ConcurrentLinkedQueue<Pair<Long, Event>>();
+					eventTypeQueue = new LinkedBlockingQueue<Pair<Long, Event>>();
 					eventTypeMap.put(e.getType(), eventTypeQueue);
 				}
 				eventTypeQueue.add(new Pair<Long, Event>(System.currentTimeMillis(), e));

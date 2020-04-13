@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 import org.apache.activemq.artemis.api.core.Pair;
 import org.junit.jupiter.api.Test;
@@ -17,11 +17,10 @@ public class BatchBlockTests {
 
 	static final Logger logger = LoggerFactory.getLogger(BatchBlockTests.class);
 
-
 	@Test
 	void testMessageQueue() {
 		logger.debug("@TEST : Check Event Submission");
-		String path = "src/test/resources/";
+		String path = "C:\\\\Users\\\\niwar\\\\Documents\\\\APPD_EventHub\\\\";
 		BatchProcessor batchEngine = new BatchProcessor(50, 15, 5, path);
 
 		ArrayList<Event> eventList = new ArrayList<Event>();
@@ -46,10 +45,10 @@ public class BatchBlockTests {
 	@Test
 	void testWorker() throws InterruptedException {
 		logger.debug("@TEST : Check a Worker Dequeue");
-		String path = "src/test/resources/";
+		String path = "C:\\\\Users\\\\niwar\\\\Documents\\\\APPD_EventHub\\\\";
 
-		ConcurrentHashMap<String, ConcurrentLinkedQueue<Pair<Long, Event>>> eventTypeMap = new ConcurrentHashMap<String, ConcurrentLinkedQueue<Pair<Long, Event>>>();
-		ConcurrentLinkedQueue<Pair<Long, Event>> eventTypeQueue = new ConcurrentLinkedQueue<Pair<Long, Event>>();
+		ConcurrentHashMap<String, LinkedBlockingQueue<Pair<Long, Event>>> eventTypeMap = new ConcurrentHashMap<String, LinkedBlockingQueue<Pair<Long, Event>>>();
+		LinkedBlockingQueue<Pair<Long, Event>> eventTypeQueue = new LinkedBlockingQueue<Pair<Long, Event>>();
 		eventTypeQueue.add(new Pair<Long, Event>(System.currentTimeMillis(), new Event("1", "EType1", null)));
 		eventTypeQueue.add(new Pair<Long, Event>(System.currentTimeMillis(), new Event("2", "EType1", null)));
 		eventTypeQueue.add(new Pair<Long, Event>(System.currentTimeMillis(), new Event("3", "EType1", null)));

@@ -55,9 +55,9 @@ class MvpApplicationTests {
 
 		assertThat(defaultToken).isEqualTo("S8EOKCffRvEYTO1pIXIo7Q");
 		assertThat(defaultTenant).isEqualTo("us-west-sr");
-		assertThat(rateLimitTimeWindow).isEqualTo(1);
-		assertThat(rateLimitMsgCount).isEqualTo(50);
-		assertThat(batchQueueSize).isEqualTo(50);
+		assertThat(rateLimitTimeWindow).isEqualTo(5);
+		assertThat(rateLimitMsgCount).isEqualTo(50000);
+		assertThat(batchQueueSize).isEqualTo(950);
 		assertThat(batchCycleTime).isEqualTo(15);
 		
 		logger.debug("@TEST : Successful test");
