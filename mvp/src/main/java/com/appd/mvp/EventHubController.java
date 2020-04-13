@@ -61,7 +61,7 @@ public class EventHubController {
 
 				String uuid = Generators.timeBasedGenerator().generate().toString();
 				logger.info("Event submit sucesss; Job reference UUID : {}", uuid);
-				logger.warn("Message accepeted; Current call counter value - {}", limiter.apiCallCounter);
+				logger.warn("Message accepeted; Current call counter value : {}", limiter.apiCallCounter);
 				logger.warn("queue size {}, element {} ", limiter.msgTimeQueue.size(),limiter.msgTimeQueue.peek());
 				GatewayResponse responseBody = new GatewayResponse(uuid);
 				return ResponseEntity.status(HttpStatus.ACCEPTED).body(responseBody);

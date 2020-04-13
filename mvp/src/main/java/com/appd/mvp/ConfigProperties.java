@@ -13,10 +13,12 @@ public class ConfigProperties {
 	
 	private String defaultToken;
 	private String defaultTenant;
+	private String sinkPath;
 	private int rateLimitTimeWindow;
 	private int rateLimitMsgCount;
 	private int batchQueueSize;
 	private int batchCycleTime;
+	private int batchWorkers;
 	
 	public String getDefaultToken() {
 		return defaultToken;
@@ -65,5 +67,22 @@ public class ConfigProperties {
 	public void setBatchCycleTime(int batchCycleTime) {
 		this.batchCycleTime = batchCycleTime;
 	}
+
+	public int getBatchWorkers() {
+		return batchWorkers;
+	}
+
+	public void setBatchWorkers(int batchWorkers) {
+		this.batchWorkers = batchWorkers;
+	}
+
+	public String getSinkPath() {
+		return sinkPath;
+	}
+
+	public void setSinkPath(String sinkPath) {
+		this.sinkPath = sinkPath;
+	}
+
 
 }

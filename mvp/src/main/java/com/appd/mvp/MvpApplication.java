@@ -23,7 +23,7 @@ public class MvpApplication {
     
     @Bean
     public BatchProcessor getBatchProcessor() {
-        return new BatchProcessor(defaultConfig.getBatchQueueSize(), defaultConfig.getBatchCycleTime());
+        return new BatchProcessor(defaultConfig.getBatchQueueSize(), defaultConfig.getBatchCycleTime(), defaultConfig.getBatchWorkers(), defaultConfig.getSinkPath());
     }
     
 	public static void main(String[] args) {
