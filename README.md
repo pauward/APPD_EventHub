@@ -1,14 +1,13 @@
 # APPD_EventHub
 REST API for event ingestion and management 
 
-API Definition : 
+API Definition : POST /event-gateway
 
-POST /event-gateway
-Post an event list to the gateway (eventGatewayPost)
+	Post an event list to the gateway (eventGatewayPost)
 
 Consumes
-This API call consumes the following media types via the Content-Type request header:
-	application/json
+
+	This API call consumes the following media types via the Content-Type request header: application/json
 
 	Request body
 		body Events (required)
@@ -41,8 +40,8 @@ This API call consumes the following media types via the Content-Type request he
 		}
 
 Produces
-This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
-	application/json
+
+	This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header: application/json
 	
 	Responses
 		202
@@ -57,6 +56,7 @@ This API call produces the following media types according to the Accept request
 		Exception while processing request - Internal server error
 
 Models
+
 	Events
 		eventList (required)
 		array[Event]
