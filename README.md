@@ -1,7 +1,7 @@
 # APPD_EventHub
 REST API for event ingestion and management 
 
-API : POST /event-gateway -	Post an event list to the gateway 
+API : POST /event-gateway -	Post an event list json array to the crazy event gateway 
 
 Consumes
 
