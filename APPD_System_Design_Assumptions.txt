@@ -1,4 +1,4 @@
-Design assumptions being made to implement this mini project. 
+Design assumptions made to implement this mini project. 
 
 1. The API will be implemented as an Asynchronous REST API call over HTTP
 	Method: POST, Response codes: 202 for Successful Event submission, 429 for Rate limit responses.

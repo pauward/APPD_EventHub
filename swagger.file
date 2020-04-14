@@ -1,5 +1,5 @@
 openapi: 3.0.0
-info:
+info: 
   description: 
     This is a crazy event gateway service.  
   version: "1.0.0"
