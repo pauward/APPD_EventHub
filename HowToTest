@@ -1,6 +1,12 @@
 Clone the repository
 	git clone https://github.com/pauward/APPD_EventHub.git
 
+Change custom configuration sink path to your local folder in file
+	APPD_EventHub/mvp/src/main/resources/configuration.properties
+
+Set custom port and log profile at 
+	APPD_EventHub/mvp/src/main/resources/application.properties
+
 Start the application
 	cd APPD_EventHub/mvp/
 	mvnw spring-boot:run -Dspring-boot.run.arguments "#_Crazy_Event_Gateway_#"
@@ -8,15 +14,23 @@ Start the application
 	or
 
 	cd APPD_EventHub/mvp/
-	java -jar  EventGateway_Mvp_APPD-1.0.0-SNAPSHOT.jar
+	java -jar EventGateway_Mvp_APPD-1.0.0-SNAPSHOT.jar
+
+Application Logs : APPD_EventHub/mvp/logs/comAppDmvp.log
+Archived logs    : APPD_EventHub/mvp/logs/archived
+
+Batch Output files will be available at
+	mvp.sinkPath=<Your local directory as set in configuration.properties>
 
 Gateway testing
-	To test with Apache Jmeter
+	To test with Apache JMeter
+	
 	Open and execute file APPD_EventHub\mvp\src\test\resources\Response Assertion.jmx in JMeter
 
 	or
 
-	To test with PostMan or CURL
+	To test with CURL
+	
 	curl --location --request POST 'http://localhost:7180/event-gateway' \
 --header 'Authorization: S8EOKCffRvEYTO1pIXIo7Q' \
 --header 'Tenant: us-west-sr' \
