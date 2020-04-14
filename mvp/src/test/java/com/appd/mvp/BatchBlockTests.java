@@ -16,11 +16,12 @@ import com.appd.events.Event;
 public class BatchBlockTests {
 
 	static final Logger logger = LoggerFactory.getLogger(BatchBlockTests.class);
+	static final String path = "src/test/resources/";
 
 	@Test
-	void testMessageQueue() {
+	void testMessageQueue() throws InterruptedException {
 		logger.debug("@TEST : Check Event Submission");
-		String path = "C:\\\\Users\\\\niwar\\\\Documents\\\\APPD_EventHub\\\\";
+
 		BatchProcessor batchEngine = new BatchProcessor(50, 15, 5, path);
 
 		ArrayList<Event> eventList = new ArrayList<Event>();
@@ -33,37 +34,45 @@ public class BatchBlockTests {
 		assertTrue(batchEngine.eventTypeMap.keySet().size() == 2);
 		assertTrue(batchEngine.eventTypeMap.get("EType1").size() == 1);
 		assertTrue(batchEngine.eventTypeMap.get("EType2").size() == 2);
-		
+
 		Thread[] brokers = batchEngine.workers;
 		for (int id = 0; id < brokers.length; id++) {
 			brokers[id].interrupt();
 		}
-		
+		Thread.sleep(1000);
 		logger.debug("@TEST : Successful test");
 	}
-	
+
 	@Test
 	void testWorker() throws InterruptedException {
 		logger.debug("@TEST : Check a Worker Dequeue");
-		String path = "C:\\\\Users\\\\niwar\\\\Documents\\\\APPD_EventHub\\\\";
 
 		ConcurrentHashMap<String, LinkedBlockingQueue<Pair<Long, Event>>> eventTypeMap = new ConcurrentHashMap<String, LinkedBlockingQueue<Pair<Long, Event>>>();
-		LinkedBlockingQueue<Pair<Long, Event>> eventTypeQueue = new LinkedBlockingQueue<Pair<Long, Event>>();
-		eventTypeQueue.add(new Pair<Long, Event>(System.currentTimeMillis(), new Event("1", "EType1", null)));
-		eventTypeQueue.add(new Pair<Long, Event>(System.currentTimeMillis(), new Event("2", "EType1", null)));
-		eventTypeQueue.add(new Pair<Long, Event>(System.currentTimeMillis(), new Event("3", "EType1", null)));
-		eventTypeQueue.add(new Pair<Long, Event>(System.currentTimeMillis(), new Event("4", "EType1", null)));
-		eventTypeQueue.add(new Pair<Long, Event>(System.currentTimeMillis(), new Event("5", "EType1", null)));
-		eventTypeQueue.add(new Pair<Long, Event>(System.currentTimeMillis(), new Event("6", "EType1", null)));
-		eventTypeQueue.add(new Pair<Long, Event>(System.currentTimeMillis(), new Event("7", "EType1", null)));
-		eventTypeMap.put("EType1", eventTypeQueue);
+
+		fillEvents(eventTypeMap, "EType1", 7);
+		fillEvents(eventTypeMap, "EType2", 7);
+
 		Thread worker = new Thread(new BatchWorker(5, 2, path, eventTypeMap));
 		worker.start();
+		Thread worker2 = new Thread(new BatchWorker(5, 2, path, eventTypeMap));
+		worker2.start();
+
 		worker.join(4000);
-		assertTrue(eventTypeMap.get("EType1").size()==0);
+		worker2.join(4000);
+
+		assertTrue(eventTypeMap.get("EType1").size() == 0);
+		assertTrue(eventTypeMap.get("EType2").size() == 0);
+
 		logger.debug("@TEST : Successful test");
 	}
-	
 
-	
+	private void fillEvents(ConcurrentHashMap<String, LinkedBlockingQueue<Pair<Long, Event>>> eventTypeMap, String type,
+			int n) {
+		LinkedBlockingQueue<Pair<Long, Event>> eventTypeQueue = new LinkedBlockingQueue<Pair<Long, Event>>();
+		for (int i = 0; i < n; i++)
+			eventTypeQueue
+					.add(new Pair<Long, Event>(System.currentTimeMillis(), new Event(String.valueOf(n), type, null)));
+		eventTypeMap.put(type, eventTypeQueue);
+	}
+
 }

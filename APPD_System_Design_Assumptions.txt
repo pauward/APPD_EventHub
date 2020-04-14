@@ -1,0 +1,24 @@
+Design assumptions being made to implement this mini project. 
+
+1. The API will be implemented as an Asynchronous REST API call over HTTP
+	Method: POST, Response codes: 202 for Successful Event submission, 429 for Rate limit responses.
+	Content: application/json 
+	Headers: Authorization and tenant
+	Sample contract: APPD_EventHub\mvp\src\test\resources\events.json
+	Response body: UUID job reference id
+
+2. One API call for example 50 events can be embedded within its JSON payload; It is still considered as one API request by the rate limiter. So, 49999 more similar requests like that is possible within the hour. 
+
+3. POST JSON payload size will be reasonable (<=10MB)
+
+4. Assuming source timestamp will be present in Event, and the gateway will add its own server timestamp, to use it for rate limiting and batching purposes
+
+5. Rate limiter to use rolling 1hr<configurable> window algorithm, where event received timestamp is used to determine the hourly 50000<configurable> limit, rather using a timer. 
+
+6. Batching to use multiple worker threads over concurrent MQ's and post to outbound sinks. Batch is posted when batch reaches specified size or the time it entered the server exceeds 15 seconds <configurable>
+
+7. Auto identification of new topics
+
+8. Output to be written as JSON with batch id to respective file types
+
+9. Configurable time window, rate limit, batch size and batch cycle time through properties

@@ -1,0 +1,110 @@
+openapi: 3.0.0
+info:
+  description: 
+    This is a crazy event gateway service.  
+  version: "1.0.0"
+  title: Event Gateway
+  license:
+    name: GNU General Public License v3.0
+    url: 'https://www.gnu.org/licenses/gpl-3.0.html'
+    
+servers:
+  - description: For local testing
+    url: http://localhost:7180/event-gateway
+
+tags:
+  - name: postEvent
+    description: Send event to a gateway with rate limiter and batch engine
+
+paths:
+  /event-gateway:
+    post:
+      tags:
+        - postEvent
+      summary: Post an event list to the gateway
+      parameters:
+        - in: header
+          name: Authorization
+          schema:
+            type: string
+            format: uuid
+          required: true
+        - in: header
+          name: Tenant
+          schema:
+            type: string
+            format: text
+          required: true
+        - in: header
+          name: Content-Type
+          schema:
+            type: string
+            format: text
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Events'
+        description: List of events to ingest
+        required: true
+      responses:
+        '202':
+          description: Successful job submission - Accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+        '401':
+          description: User not allowed - Unauthorized
+        '422':
+          description: Empty events list - Unprocessable entity
+        '429':
+          description: Rate limit rejection - Too many requests 
+        '500':
+          description: Exception while processing request - Internal server error
+
+components:
+  schemas:
+    Job:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+    Events:
+      type: object
+      properties:
+        eventList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
+
+    Event:
+      type: object
+      properties:
+        eventId:
+          type: string
+          format: uuid
+        type:
+          type: string
+          format: text
+          example:
+           - EType1
+           - EType2
+           - EType3
+           - EType4
+        body:
+          $ref: '#/components/schemas/EventDetails'
+    EventDetails:
+      type: object
+      properties:
+        name:
+          type: string
+          format: text
+        eventStart:
+          type: string
+          format: timestamp
+        severity:
+          type: integer
+          format: int32

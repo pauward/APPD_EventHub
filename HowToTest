@@ -1,0 +1,20 @@
+Clone the repository
+	git clone https://github.com/pauward/APPD_EventHub.git
+
+Start the application
+	cd APPD_EventHub/mvp/
+	mvnw spring-boot:run -Dspring-boot.run.arguments "_Crazy_Event_Gateway_"
+
+	or
+
+	cd APPD_EventHub/mvp/
+	java -jar  EventGateway_Mvp_APPD-1.0.0-SNAPSHOT.jar
+
+Gateway testing
+	To test with Apache Jmeter
+	Open and execute file APPD_EventHub\mvp\src\test\resources\Response Assertion.jmx in JMeter
+
+	or
+
+	To test with PostMan
+	

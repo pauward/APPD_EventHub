@@ -45,31 +45,33 @@ public class BatchWorker implements Runnable {
 					long currentTime = System.currentTimeMillis();
 					LinkedList<Event> list = new LinkedList<Event>();
 					LinkedBlockingQueue<Pair<Long, Event>> typeQueue = eventTypeMap.get(eventType);
+					synchronized (typeQueue) {
 
-					if (typeQueue.size() >= batchQueueSize) {
-						logger.debug("Batch size reached for {}; Pushing batch...", eventType);
-						for (int countEvent = batchQueueSize; countEvent > 0; countEvent--)
-							if (typeQueue.peek() != null)
+						if (typeQueue.size() >= batchQueueSize) {
+							logger.debug("Batch size reached for {}; Pushing batch...", eventType);
+							for (int countEvent = batchQueueSize; countEvent > 0; countEvent--) {
+								if (typeQueue.peek() != null)
+									list.add(typeQueue.poll().getB());
+							}
+						} else if (typeQueue.size() > 0 && typeQueue.size() < batchQueueSize
+								&& currentTime >= (typeQueue.peek().getA() + (batchCycleTime * 1000))) {
+							logger.debug("Event exceeded cycle time in {} queue; Pushing batch...", eventType);
+							while (typeQueue.peek() != null)
 								list.add(typeQueue.poll().getB());
 
-					} else if (typeQueue.size() > 0 && typeQueue.size() < batchQueueSize
-							&& currentTime >= (typeQueue.peek().getA() + (batchCycleTime * 1000))) {
-						logger.debug("Event exceeded cycle time in {} queue; Pushing batch...", eventType);
-						while (typeQueue.peek() != null)
-							list.add(typeQueue.poll().getB());
+						}
+						if (list.size() > 0) {
+							String uuid = Generators.timeBasedGenerator().generate().toString();
+							logger.debug("Writing batch {} for type {} with {} events", uuid, eventType, list.size());
+							FileOutputStream outputStream = new FileOutputStream(sinkPath + eventType + ".txt", true);
+							outputStream.write(mapper.writeValueAsString(new OutToSink(uuid, list)).getBytes());
+							outputStream.write(new String("\n").getBytes());
+							outputStream.flush();
+							outputStream.close();
+						}
+					}
 
-					}
-					if (list.size() > 0) {
-						String uuid = Generators.timeBasedGenerator().generate().toString();
-						logger.debug("Writing batch {} for type {} with {} events", uuid, eventType, list.size());
-						FileOutputStream outputStream = new FileOutputStream(sinkPath + eventType + ".txt", true);
-						outputStream.write(mapper.writeValueAsString(new OutToSink(uuid, list)).getBytes());
-						outputStream.write(new String("\n").getBytes());
-						outputStream.flush();
-						outputStream.close();
-					}
 				}
-
 			}
 
 		} catch (InterruptedException e) {
