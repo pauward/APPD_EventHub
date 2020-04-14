@@ -15,6 +15,10 @@ import com.appd.iop.OutToSink;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.uuid.Generators;
 
+/**
+ * @author niwar
+ *
+ */
 public class BatchWorker implements Runnable {
 
 	static final Logger logger = LoggerFactory.getLogger(BatchWorker.class);
@@ -25,6 +29,12 @@ public class BatchWorker implements Runnable {
 
 	protected ConcurrentHashMap<String, LinkedBlockingQueue<Pair<Long, Event>>> eventTypeMap;
 
+	/**
+	 * @param size  Batch queue size
+	 * @param cycle Max time msg must spend in service
+	 * @param sink  Output directory path
+	 * @param map   Concurrent map of event queues
+	 */
 	BatchWorker(int size, int cycle, String sink,
 			ConcurrentHashMap<String, LinkedBlockingQueue<Pair<Long, Event>>> map) {
 		this.batchQueueSize = size;
@@ -33,6 +43,10 @@ public class BatchWorker implements Runnable {
 		this.eventTypeMap = map;
 	}
 
+	/**
+	 * Check if queue reached batch size or event insertion time exceeds or meets
+	 * the max time the msg can spend with in the service
+	 */
 	@Override
 	public void run() {
 		try {

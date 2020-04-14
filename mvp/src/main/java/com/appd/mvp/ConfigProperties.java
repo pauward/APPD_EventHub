@@ -5,21 +5,32 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
 
+/**
+ * @author niwar
+ *
+ */
 @Primary
 @Configuration
 @ConfigurationProperties(prefix = "mvp")
 @PropertySource(value = "classpath:configuration.properties")
 public class ConfigProperties {
-	
+
 	private String defaultToken;
 	private String defaultTenant;
 	private String sinkPath;
-	private int rateLimitTimeWindow;
 	private int rateLimitMsgCount;
 	private int batchQueueSize;
-	private int batchCycleTime;
 	private int batchWorkers;
-	
+
+	/**
+	 * Unit : Minutes
+	 */
+	private int rateLimitTimeWindow;
+	/**
+	 * Unit : Seconds
+	 */
+	private int batchCycleTime;
+
 	public String getDefaultToken() {
 		return defaultToken;
 	}
@@ -83,6 +94,5 @@ public class ConfigProperties {
 	public void setSinkPath(String sinkPath) {
 		this.sinkPath = sinkPath;
 	}
-
 
 }

@@ -1,0 +1,156 @@
+2020-04-13 20:16:55,931 INFO com.appd.mvp.MvpApplication [main] Starting MvpApplication v0.0.1-SNAPSHOT on DESKTOP-LEJDT05 with PID 15544 (C:\Users\niwar\Documents\APPD_EventHub\mvp\target\mvp-0.0.1-SNAPSHOT.jar started by niwar in C:\Users\niwar\Documents\APPD_EventHub\mvp)
+2020-04-13 20:16:55,934 DEBUG com.appd.mvp.MvpApplication [main] Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-04-13 20:16:55,936 INFO com.appd.mvp.MvpApplication [main] The following profiles are active: prod
+2020-04-13 20:16:56,991 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 7180 (http)
+2020-04-13 20:16:57,001 INFO org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2020-04-13 20:16:57,001 INFO org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-04-13 20:16:57,067 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2020-04-13 20:16:57,067 INFO org.springframework.web.context.ContextLoader [main] Root WebApplicationContext: initialization completed in 1088 ms
+2020-04-13 20:16:57,150 DEBUG com.appd.mvp.BatchProcessor [main] Created 4 workers
+2020-04-13 20:16:57,284 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-13 20:16:57,951 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 7180 (http) with context path ''
+2020-04-13 20:16:57,955 INFO com.appd.mvp.MvpApplication [main] Started MvpApplication in 2.474 seconds (JVM running for 2.825)
+2020-04-13 20:18:01,811 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-7180-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-04-13 20:18:01,814 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-7180-exec-1] Initializing Servlet 'dispatcherServlet'
+2020-04-13 20:18:01,821 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-7180-exec-1] Completed initialization in 6 ms
+2020-04-13 20:18:01,953 DEBUG com.appd.mvp.EventHubController [http-nio-7180-exec-1] Client validated, proceeding to process events...
+2020-04-13 20:18:01,953 DEBUG com.appd.mvp.EventHubController [http-nio-7180-exec-1] Submitting 4 events to the batch processor
+2020-04-13 20:18:01,955 DEBUG com.appd.mvp.BatchProcessor [http-nio-7180-exec-1] Creating new event type queue EType1 
+2020-04-13 20:18:01,956 DEBUG com.appd.mvp.BatchProcessor [http-nio-7180-exec-1] Creating new event type queue EType2 
+2020-04-13 20:18:01,956 DEBUG com.appd.mvp.BatchProcessor [http-nio-7180-exec-1] Creating new event type queue EType3 
+2020-04-13 20:18:01,957 DEBUG com.appd.mvp.BatchProcessor [http-nio-7180-exec-1] Creating new event type queue EType4 
+2020-04-13 20:18:01,962 INFO com.appd.mvp.EventHubController [http-nio-7180-exec-1] Event submit sucesss; Job reference UUID : 8c714599-7dfe-11ea-94d0-f5e2c5853b39
+2020-04-13 20:18:01,963 INFO com.appd.mvp.EventHubController [http-nio-7180-exec-1] Message accepeted; Current call counter value : 1 ; queue size 1
+2020-04-13 20:18:16,958 DEBUG com.appd.mvp.BatchWorker [Thread-4] Event exceeded cycle time in EType3 queue; Pushing batch...
+2020-04-13 20:18:16,959 DEBUG com.appd.mvp.BatchWorker [Thread-4] Writing batch 9561a1ea-7dfe-11ea-94d0-8d516cd87270 for type EType3 with 1 events
+2020-04-13 20:18:16,971 DEBUG com.appd.mvp.BatchWorker [Thread-4] Event exceeded cycle time in EType4 queue; Pushing batch...
+2020-04-13 20:18:16,973 DEBUG com.appd.mvp.BatchWorker [Thread-4] Writing batch 9563c4cb-7dfe-11ea-94d0-710e089b4018 for type EType4 with 1 events
+2020-04-13 20:18:16,974 DEBUG com.appd.mvp.BatchWorker [Thread-4] Event exceeded cycle time in EType1 queue; Pushing batch...
+2020-04-13 20:18:16,975 DEBUG com.appd.mvp.BatchWorker [Thread-4] Writing batch 956412ec-7dfe-11ea-94d0-83cf8cf50d89 for type EType1 with 1 events
+2020-04-13 20:18:16,976 DEBUG com.appd.mvp.BatchWorker [Thread-4] Event exceeded cycle time in EType2 queue; Pushing batch...
+2020-04-13 20:18:16,976 DEBUG com.appd.mvp.BatchWorker [Thread-4] Writing batch 956439fd-7dfe-11ea-94d0-cb199fde969b for type EType2 with 1 events
+2020-04-13 20:19:16,825 WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [http-nio-7180-exec-4] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Unexpected character ('}' (code 125)): was expecting double-quote to start field name
+ at [Source: (PushbackInputStream); line: 5, column: 3] (through reference chain: com.appd.events.EventMessageList["eventList"]->java.util.ArrayList[0])]
+2020-04-13 20:20:50,973 DEBUG com.appd.mvp.EventHubController [http-nio-7180-exec-5] Client validated, proceeding to process events...
+2020-04-13 20:20:50,973 DEBUG com.appd.mvp.EventHubController [http-nio-7180-exec-5] Submitting 4 events to the batch processor
+2020-04-13 20:20:50,975 DEBUG com.appd.mvp.BatchProcessor [http-nio-7180-exec-5] Event type queue - EType1 available with 0 events
+2020-04-13 20:20:50,976 DEBUG com.appd.mvp.BatchProcessor [http-nio-7180-exec-5] Event type queue - EType2 available with 0 events
+2020-04-13 20:20:50,976 DEBUG com.appd.mvp.BatchProcessor [http-nio-7180-exec-5] Event type queue - EType3 available with 0 events
+2020-04-13 20:20:50,977 DEBUG com.appd.mvp.BatchProcessor [http-nio-7180-exec-5] Event type queue - EType4 available with 0 events
+2020-04-13 20:20:50,977 INFO com.appd.mvp.EventHubController [http-nio-7180-exec-5] Event submit sucesss; Job reference UUID : f12eea0e-7dfe-11ea-94d0-db82721e37f3
+2020-04-13 20:20:50,978 INFO com.appd.mvp.EventHubController [http-nio-7180-exec-5] Message accepeted; Current call counter value : 2 ; queue size 2
+2020-04-13 20:20:57,629 DEBUG com.appd.mvp.EventHubController [http-nio-7180-exec-6] Client validated, proceeding to process events...
+2020-04-13 20:20:57,630 DEBUG com.appd.mvp.EventHubController [http-nio-7180-exec-6] Submitting 4 events to the batch processor
+2020-04-13 20:20:57,632 DEBUG com.appd.mvp.BatchProcessor [http-nio-7180-exec-6] Event type queue - EType1 available with 1 events
+2020-04-13 20:20:57,632 DEBUG com.appd.mvp.BatchProcessor [http-nio-7180-exec-6] Event type queue - EType2 available with 1 events
+2020-04-13 20:20:57,633 DEBUG com.appd.mvp.BatchProcessor [http-nio-7180-exec-6] Event type queue - EType3 available with 1 events
+2020-04-13 20:20:57,633 DEBUG com.appd.mvp.BatchProcessor [http-nio-7180-exec-6] Event type queue - EType4 available with 1 events
+2020-04-13 20:20:57,633 INFO com.appd.mvp.EventHubController [http-nio-7180-exec-6] Event submit sucesss; Job reference UUID : f5268a0f-7dfe-11ea-94d0-7b93aae5a947
+2020-04-13 20:20:57,634 INFO com.appd.mvp.EventHubController [http-nio-7180-exec-6] Message accepeted; Current call counter value : 3 ; queue size 3
+2020-04-13 20:21:05,976 DEBUG com.appd.mvp.BatchWorker [Thread-4] Event exceeded cycle time in EType1 queue; Pushing batch...
+2020-04-13 20:21:05,978 DEBUG com.appd.mvp.BatchWorker [Thread-4] Writing batch fa1fe1a0-7dfe-11ea-94d0-29be795f5a9d for type EType1 with 2 events
+2020-04-13 20:21:05,986 DEBUG com.appd.mvp.BatchWorker [Thread-4] Event exceeded cycle time in EType2 queue; Pushing batch...
+2020-04-13 20:21:05,987 DEBUG com.appd.mvp.BatchWorker [Thread-4] Writing batch fa214131-7dfe-11ea-94d0-735ac0f048c8 for type EType2 with 2 events
+2020-04-13 20:21:05,990 DEBUG com.appd.mvp.BatchWorker [Thread-4] Event exceeded cycle time in EType3 queue; Pushing batch...
+2020-04-13 20:21:05,995 DEBUG com.appd.mvp.BatchWorker [Thread-4] Writing batch fa2279b2-7dfe-11ea-94d0-4367bb8ea220 for type EType3 with 2 events
+2020-04-13 20:21:05,997 DEBUG com.appd.mvp.BatchWorker [Thread-4] Event exceeded cycle time in EType4 queue; Pushing batch...
+2020-04-13 20:21:06,010 DEBUG com.appd.mvp.BatchWorker [Thread-4] Writing batch fa24c3a3-7dfe-11ea-94d0-87bb961c1da5 for type EType4 with 2 events
+2020-04-13 20:21:12,145 DEBUG com.appd.mvp.EventHubController [http-nio-7180-exec-8] Client validated, proceeding to process events...
+2020-04-13 20:21:12,145 DEBUG com.appd.mvp.EventHubController [http-nio-7180-exec-8] Submitting 4 events to the batch processor
+2020-04-13 20:21:12,147 DEBUG com.appd.mvp.BatchProcessor [http-nio-7180-exec-8] Event type queue - EType1 available with 0 events
+2020-04-13 20:21:12,147 DEBUG com.appd.mvp.BatchProcessor [http-nio-7180-exec-8] Event type queue - EType2 available with 0 events
+2020-04-13 20:21:12,148 DEBUG com.appd.mvp.BatchProcessor [http-nio-7180-exec-8] Event type queue - EType3 available with 0 events
+2020-04-13 20:21:12,148 DEBUG com.appd.mvp.BatchProcessor [http-nio-7180-exec-8] Event type queue - EType4 available with 0 events
+2020-04-13 20:21:12,149 INFO com.appd.mvp.EventHubController [http-nio-7180-exec-8] Event submit sucesss; Job reference UUID : fdcd8054-7dfe-11ea-94d0-8badbf10c514
+2020-04-13 20:21:12,149 INFO com.appd.mvp.EventHubController [http-nio-7180-exec-8] Message accepeted; Current call counter value : 4 ; queue size 4
+2020-04-13 20:21:16,405 DEBUG com.appd.mvp.EventHubController [http-nio-7180-exec-10] Client validated, proceeding to process events...
+2020-04-13 20:21:16,406 DEBUG com.appd.mvp.EventHubController [http-nio-7180-exec-10] Submitting 4 events to the batch processor
+2020-04-13 20:21:16,408 DEBUG com.appd.mvp.BatchProcessor [http-nio-7180-exec-10] Event type queue - EType1 available with 1 events
+2020-04-13 20:21:16,408 DEBUG com.appd.mvp.BatchProcessor [http-nio-7180-exec-10] Event type queue - EType2 available with 1 events
+2020-04-13 20:21:16,409 DEBUG com.appd.mvp.BatchProcessor [http-nio-7180-exec-10] Event type queue - EType3 available with 1 events
+2020-04-13 20:21:16,409 DEBUG com.appd.mvp.BatchProcessor [http-nio-7180-exec-10] Event type queue - EType4 available with 1 events
+2020-04-13 20:21:16,410 INFO com.appd.mvp.EventHubController [http-nio-7180-exec-10] Event submit sucesss; Job reference UUID : 0057ada5-7dff-11ea-94d0-0d430875e624
+2020-04-13 20:21:16,410 INFO com.appd.mvp.EventHubController [http-nio-7180-exec-10] Message accepeted; Current call counter value : 5 ; queue size 5
+2020-04-13 20:21:19,165 DEBUG com.appd.mvp.EventHubController [http-nio-7180-exec-3] Client validated, proceeding to process events...
+2020-04-13 20:21:19,165 DEBUG com.appd.mvp.EventHubController [http-nio-7180-exec-3] Submitting 4 events to the batch processor
+2020-04-13 20:21:19,167 DEBUG com.appd.mvp.BatchProcessor [http-nio-7180-exec-3] Event type queue - EType1 available with 2 events
+2020-04-13 20:21:19,168 DEBUG com.appd.mvp.BatchProcessor [http-nio-7180-exec-3] Event type queue - EType2 available with 2 events
+2020-04-13 20:21:19,168 DEBUG com.appd.mvp.BatchProcessor [http-nio-7180-exec-3] Event type queue - EType3 available with 2 events
+2020-04-13 20:21:19,169 DEBUG com.appd.mvp.BatchProcessor [http-nio-7180-exec-3] Event type queue - EType4 available with 2 events
+2020-04-13 20:21:19,169 INFO com.appd.mvp.EventHubController [http-nio-7180-exec-3] Event submit sucesss; Job reference UUID : 01fcab16-7dff-11ea-94d0-8b3b972728c1
+2020-04-13 20:21:19,169 INFO com.appd.mvp.EventHubController [http-nio-7180-exec-3] Message accepeted; Current call counter value : 6 ; queue size 6
+2020-04-13 20:21:27,148 DEBUG com.appd.mvp.BatchWorker [Thread-2] Event exceeded cycle time in EType3 queue; Pushing batch...
+2020-04-13 20:21:27,150 DEBUG com.appd.mvp.BatchWorker [Thread-2] Writing batch 06be78e7-7dff-11ea-94d0-cbffaabd4791 for type EType3 with 3 events
+2020-04-13 20:21:27,161 DEBUG com.appd.mvp.BatchWorker [Thread-2] Event exceeded cycle time in EType4 queue; Pushing batch...
+2020-04-13 20:21:27,161 DEBUG com.appd.mvp.BatchWorker [Thread-2] Writing batch 06c02698-7dff-11ea-94d0-71f3f066529b for type EType4 with 3 events
+2020-04-13 20:21:27,164 DEBUG com.appd.mvp.BatchWorker [Thread-2] Event exceeded cycle time in EType1 queue; Pushing batch...
+2020-04-13 20:21:27,166 DEBUG com.appd.mvp.BatchWorker [Thread-2] Writing batch 06c0e9e9-7dff-11ea-94d0-53bc43f42991 for type EType1 with 3 events
+2020-04-13 20:21:27,167 DEBUG com.appd.mvp.BatchWorker [Thread-2] Event exceeded cycle time in EType2 queue; Pushing batch...
+2020-04-13 20:21:27,167 DEBUG com.appd.mvp.BatchWorker [Thread-2] Writing batch 06c110fa-7dff-11ea-94d0-2f26fcade98a for type EType2 with 3 events
+2020-04-13 21:55:56,241 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-04-13 21:56:24,361 INFO com.appd.mvp.MvpApplicationTests [main] Starting MvpApplicationTests on DESKTOP-LEJDT05 with PID 17716 (started by niwar in C:\Users\niwar\Documents\APPD_EventHub\mvp)
+2020-04-13 21:56:24,362 DEBUG com.appd.mvp.MvpApplicationTests [main] Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-04-13 21:56:24,363 INFO com.appd.mvp.MvpApplicationTests [main] The following profiles are active: prod
+2020-04-13 21:56:24,855 DEBUG com.appd.mvp.BatchProcessor [main] Created 4 workers
+2020-04-13 21:56:25,068 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-13 21:56:25,268 INFO org.springframework.boot.test.mock.web.SpringBootMockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-04-13 21:56:25,269 INFO org.springframework.test.web.servlet.TestDispatcherServlet [main] Initializing Servlet ''
+2020-04-13 21:56:25,278 INFO org.springframework.test.web.servlet.TestDispatcherServlet [main] Completed initialization in 9 ms
+2020-04-13 21:56:25,302 INFO com.appd.mvp.MvpApplicationTests [main] Started MvpApplicationTests in 1.271 seconds (JVM running for 11.117)
+2020-04-13 21:56:25,613 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : Check Property Loading
+2020-04-13 21:56:25,657 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : Successful test
+2020-04-13 21:56:25,663 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : Send Good Events
+2020-04-13 21:56:25,749 DEBUG com.appd.mvp.EventHubController [main] Client validated, proceeding to process events...
+2020-04-13 21:56:25,749 DEBUG com.appd.mvp.EventHubController [main] Submitting 4 events to the batch processor
+2020-04-13 21:56:25,749 DEBUG com.appd.mvp.BatchProcessor [main] Creating new event type queue EType1 
+2020-04-13 21:56:25,749 DEBUG com.appd.mvp.BatchProcessor [main] Creating new event type queue EType2 
+2020-04-13 21:56:25,750 DEBUG com.appd.mvp.BatchProcessor [main] Creating new event type queue EType3 
+2020-04-13 21:56:25,750 DEBUG com.appd.mvp.BatchProcessor [main] Creating new event type queue EType4 
+2020-04-13 21:56:25,750 INFO com.appd.mvp.EventHubController [main] Event submit sucesss; Job reference UUID : 4b5fd375-7e0c-11ea-bc12-37b40933e901
+2020-04-13 21:56:25,750 INFO com.appd.mvp.EventHubController [main] Message accepeted; Current call counter value : 1 ; queue size 1
+2020-04-13 21:56:25,770 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : Successful test; Event submitted
+2020-04-13 21:56:25,770 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : End of test
+2020-04-13 21:56:25,774 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : Send UnAuthorized Event
+2020-04-13 21:56:25,776 WARN com.appd.mvp.EventHubController [main] Unauthorized access
+2020-04-13 21:56:25,778 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : Successful test; Not Allowed
+2020-04-13 21:56:25,778 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : End of test
+2020-04-13 21:56:25,782 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : Send No Event
+2020-04-13 21:56:25,786 WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [main] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.appd.iop.GatewayResponse> com.appd.mvp.EventHubController.crazyEventGateway(com.appd.events.EventMessageList,java.lang.String,java.lang.String)]
+2020-04-13 21:56:25,787 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : Successful test; Bad Request
+2020-04-13 21:56:25,787 DEBUG com.appd.mvp.MvpApplicationTests [main] @TEST : End of test
+2020-04-13 21:56:25,791 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Check Bean Initialization
+2020-04-13 21:56:25,791 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Successful test
+2020-04-13 21:56:25,792 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Limiter test
+2020-04-13 21:56:25,792 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending first call
+2020-04-13 21:56:25,792 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending second call
+2020-04-13 21:56:25,792 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-13 21:56:25,793 DEBUG com.appd.mvp.RateLimiter [main] 0 elements dequeued from rolling window
+2020-04-13 21:56:25,793 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Successful test; Limiter blocked API after limit
+2020-04-13 21:56:25,793 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : End of test
+2020-04-13 21:56:25,794 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Limiter timer test
+2020-04-13 21:56:25,794 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 1
+2020-04-13 21:56:25,806 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 2
+2020-04-13 21:56:25,816 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 3
+2020-04-13 21:56:25,816 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-13 21:56:25,816 DEBUG com.appd.mvp.RateLimiter [main] 2 elements dequeued from rolling window
+2020-04-13 21:56:25,827 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 4
+2020-04-13 21:56:25,838 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 5
+2020-04-13 21:56:25,838 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-13 21:56:25,838 DEBUG com.appd.mvp.RateLimiter [main] 2 elements dequeued from rolling window
+2020-04-13 21:56:25,849 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Successful test; Dequeued expired calls successfully
+2020-04-13 21:56:25,849 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : End of test
+2020-04-13 21:56:25,850 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Limiter varialbe test
+2020-04-13 21:56:25,850 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 1
+2020-04-13 21:56:25,850 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 2
+2020-04-13 21:56:25,850 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 3
+2020-04-13 21:56:25,850 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-13 21:56:25,850 DEBUG com.appd.mvp.RateLimiter [main] 0 elements dequeued from rolling window
+2020-04-13 21:56:25,850 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 4
+2020-04-13 21:56:25,850 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-13 21:56:25,850 DEBUG com.appd.mvp.RateLimiter [main] 0 elements dequeued from rolling window
+2020-04-13 21:56:25,850 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Sending call 5
+2020-04-13 21:56:25,850 DEBUG com.appd.mvp.RateLimiter [main] Rate limit reached, checking rolling window queue...
+2020-04-13 21:56:25,850 DEBUG com.appd.mvp.RateLimiter [main] 0 elements dequeued from rolling window
+2020-04-13 21:56:25,851 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : Successful test; Limiter queue maxed at specified limit; did not dequeue
+2020-04-13 21:56:25,851 DEBUG com.appd.mvp.RateLimiterBlockTests [main] @TEST : End of test
+2020-04-13 21:56:25,861 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'

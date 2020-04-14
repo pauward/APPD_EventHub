@@ -26,6 +26,10 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+/**
+ * @author niwar
+ *
+ */
 @WebMvcTest
 @AutoConfigureMockMvc
 class MvpApplicationTests {
@@ -121,6 +125,11 @@ class MvpApplicationTests {
 		logger.debug("@TEST : End of test");
 	}
 
+	/**
+	 * @return JSON string from events.json file
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	private String getTestEvents() throws FileNotFoundException, IOException {
 		File eventsJson = new File("src/test/resources/events.json");
 		StringBuilder jsonString = new StringBuilder();

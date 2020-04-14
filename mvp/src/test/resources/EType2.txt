@@ -1,0 +1,2 @@
+{"batchId":"458a72c2-7e0c-11ea-bc12-39e5e0cd061b","eventList":[{"eventId":"7","type":"EType2","bodyObject":null},{"eventId":"7","type":"EType2","bodyObject":null},{"eventId":"7","type":"EType2","bodyObject":null},{"eventId":"7","type":"EType2","bodyObject":null},{"eventId":"7","type":"EType2","bodyObject":null}]}
+{"batchId":"469971c4-7e0c-11ea-bc12-cb8f1b0ca525","eventList":[{"eventId":"7","type":"EType2","bodyObject":null},{"eventId":"7","type":"EType2","bodyObject":null}]}

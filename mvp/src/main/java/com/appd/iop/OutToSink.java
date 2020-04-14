@@ -4,8 +4,14 @@ import java.util.LinkedList;
 
 import com.appd.events.Event;
 
+/**
+ * Output format to sink/topic
+ * 
+ * @author niwar
+ *
+ */
 public class OutToSink {
-	
+
 	private String batchId;
 	private LinkedList<Event> eventList;
 
@@ -29,6 +35,5 @@ public class OutToSink {
 	public void setEventList(LinkedList<Event> eventList) {
 		this.eventList = eventList;
 	}
-	
 
 }

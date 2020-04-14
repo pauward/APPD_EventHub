@@ -20,6 +20,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+/**
+ * @author niwar
+ *
+ */
 @RestController
 public class EventHubController {
 
@@ -36,6 +40,12 @@ public class EventHubController {
 		batchEngine = batchProcessor;
 	}
 
+	/**
+	 * @param msgList       Valid JSON events
+	 * @param authorization Example client token
+	 * @param tenant        Example region
+	 * @return UUID for submitted job
+	 */
 	@PostMapping("/event-gateway")
 	@ResponseBody
 	public ResponseEntity<GatewayResponse> crazyEventGateway(
@@ -66,7 +76,8 @@ public class EventHubController {
 
 				String uuid = Generators.timeBasedGenerator().generate().toString();
 				logger.info("Event submit sucesss; Job reference UUID : {}", uuid);
-				logger.info("Message accepeted; Current call counter value : {} ; queue size {}", limiter.apiCallCounter,limiter.msgTimeQueue.size());
+				logger.info("Message accepeted; Current call counter value : {} ; queue size {}",
+						limiter.apiCallCounter, limiter.msgTimeQueue.size());
 				GatewayResponse responseBody = new GatewayResponse(uuid);
 				return ResponseEntity.status(HttpStatus.ACCEPTED).body(responseBody);
 

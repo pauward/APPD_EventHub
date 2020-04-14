@@ -13,6 +13,10 @@ import org.slf4j.LoggerFactory;
 
 import com.appd.events.Event;
 
+/**
+ * @author niwar
+ *
+ */
 public class BatchBlockTests {
 
 	static final Logger logger = LoggerFactory.getLogger(BatchBlockTests.class);
@@ -29,8 +33,7 @@ public class BatchBlockTests {
 		eventList.add(new Event("2", "EType2", null));
 		eventList.add(new Event("3", "EType2", null));
 
-		batchEngine.submitEvents(eventList);
-
+		assertTrue(batchEngine.submitEvents(eventList));
 		assertTrue(batchEngine.eventTypeMap.keySet().size() == 2);
 		assertTrue(batchEngine.eventTypeMap.get("EType1").size() == 1);
 		assertTrue(batchEngine.eventTypeMap.get("EType2").size() == 2);
@@ -39,7 +42,7 @@ public class BatchBlockTests {
 		for (int id = 0; id < brokers.length; id++) {
 			brokers[id].interrupt();
 		}
-		Thread.sleep(1000);
+		Thread.sleep(1000); // Wait to interrupt all created workers, before next test
 		logger.debug("@TEST : Successful test");
 	}
 
@@ -60,12 +63,18 @@ public class BatchBlockTests {
 		worker.join(4000);
 		worker2.join(4000);
 
+		// All messages must be processed
 		assertTrue(eventTypeMap.get("EType1").size() == 0);
 		assertTrue(eventTypeMap.get("EType2").size() == 0);
 
 		logger.debug("@TEST : Successful test");
 	}
 
+	/**
+	 * @param eventTypeMap Concurrent map
+	 * @param type         Type of events to populate
+	 * @param n            Number of event elements to add
+	 */
 	private void fillEvents(ConcurrentHashMap<String, LinkedBlockingQueue<Pair<Long, Event>>> eventTypeMap, String type,
 			int n) {
 		LinkedBlockingQueue<Pair<Long, Event>> eventTypeQueue = new LinkedBlockingQueue<Pair<Long, Event>>();

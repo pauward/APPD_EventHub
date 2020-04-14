@@ -10,6 +10,10 @@ import org.slf4j.LoggerFactory;
 
 import com.appd.events.Event;
 
+/**
+ * @author niwar
+ * 
+ */
 public class BatchProcessor {
 
 	static final Logger logger = LoggerFactory.getLogger(BatchProcessor.class);
@@ -21,8 +25,17 @@ public class BatchProcessor {
 	protected String sinkPath;
 	protected Thread[] workers;
 
+	/**
+	 * Thread safe map to hold independent blocking queues for each event type
+	 */
 	protected ConcurrentHashMap<String, LinkedBlockingQueue<Pair<Long, Event>>> eventTypeMap;
 
+	/**
+	 * @param size       Batch queue size
+	 * @param cycle      Max time msg must spend in service
+	 * @param processors Number of parallel worker threads
+	 * @param sink       Output directory path
+	 */
 	BatchProcessor(int size, int cycle, int processors, String sink) {
 
 		this.batchQueueSize = size;
@@ -41,6 +54,12 @@ public class BatchProcessor {
 		logger.debug("Created {} workers", workers.length);
 	}
 
+	/**
+	 * Parse events in JSON and submit to appropriate queue based on event type
+	 * 
+	 * @param eventList List of events in JSON pay load
+	 * @return true or false
+	 */
 	synchronized public boolean submitEvents(ArrayList<Event> eventList) {
 		try {
 			for (Event e : eventList) {

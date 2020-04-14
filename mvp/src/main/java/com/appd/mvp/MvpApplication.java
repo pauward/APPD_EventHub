@@ -8,29 +8,37 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 
+/**
+ * @author niwar
+ *
+ */
 @SpringBootApplication
 @EnableConfigurationProperties(ConfigProperties.class)
 public class MvpApplication {
-    static final Logger logger = LoggerFactory.getLogger(MvpApplication.class);
-    
-    @Autowired
+	static final Logger logger = LoggerFactory.getLogger(MvpApplication.class);
+
+	/**
+	 * Values from configuration.properties file
+	 */
+	@Autowired
 	ConfigProperties defaultConfig;
-    
-    @Bean
-    public RateLimiter getRateLimiter() {
-        return new RateLimiter(defaultConfig.getRateLimitTimeWindow(), defaultConfig.getRateLimitMsgCount());
-    }
-    
-    @Bean
-    public BatchProcessor getBatchProcessor() {
-        return new BatchProcessor(defaultConfig.getBatchQueueSize(), defaultConfig.getBatchCycleTime(), defaultConfig.getBatchWorkers(), defaultConfig.getSinkPath());
-    }
-    
+
+	@Bean
+	public RateLimiter getRateLimiter() {
+		return new RateLimiter(defaultConfig.getRateLimitTimeWindow(), defaultConfig.getRateLimitMsgCount());
+	}
+
+	@Bean
+	public BatchProcessor getBatchProcessor() {
+		return new BatchProcessor(defaultConfig.getBatchQueueSize(), defaultConfig.getBatchCycleTime(),
+				defaultConfig.getBatchWorkers(), defaultConfig.getSinkPath());
+	}
+
 	public static void main(String[] args) {
-		if(args!=null && args.length > 0)
+		if (args != null && args.length > 0)
 			logger.info("Starting appplication {}", args[0]);
 		SpringApplication.run(MvpApplication.class, args);
-		
+
 	}
-	
+
 }
